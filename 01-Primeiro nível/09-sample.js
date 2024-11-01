@@ -6,3 +6,5 @@ class Gestor {
 }
 
 const pessoa = new Gestor("Lucas", 40);
+
+console.log(pessoa);
