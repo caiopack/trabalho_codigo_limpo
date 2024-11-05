@@ -1,16 +1,12 @@
-function verificaParesPresentes(numerosPresentes) {
-    const numerosPares = [];
-    const divisorPar = 2;
+const maiorNumero = 6;
+const divisor = 2;
+const numerosPresentes = Array.from({ length: maiorNumero }, (_, i) => i + 1);
 
-    for (let i = 0; i < numerosPresentes.length; i++) {
-        if (numerosPresentes[i] % divisorPar === 0) {
-            numerosPares.push(numerosPresentes[i]);
-        }
-    }
-    return numerosPares;
+function verificaParesPresentes(array){
+    return array.filter(numero => numero % divisor == 0);
 }
 
-//numerosPresentes é um array que armazena os numeros de 1 a 6 para serem usados na função verificaPares;
-const numerosPresentes = [1, 2, 3, 4, 5, 6];
+
+
 const numerosParesPresentes = verificaParesPresentes(numerosPresentes); 
 console.log(numerosParesPresentes);
