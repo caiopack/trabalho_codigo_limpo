@@ -1,6 +1,9 @@
+const precoPorKM = 10;
+const distancia = 50;
+
 function calcularFrete(distancia) {
-    return distancia * 10;
+    return distancia * precoPorKM;
 }
 
-const frete = calcularFrete(50);
+const frete = calcularFrete(distancia);
 console.log(`O valor do frete é: ${frete}`);
