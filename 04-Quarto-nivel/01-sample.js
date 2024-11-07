@@ -3,7 +3,7 @@ async function buscarPlaneta() {
     const planeta = await resposta.json();
     console.log(planeta.name);
 
-    exibirNomePlaneta(planeta.name);
+    buscarPlaneta(planeta.name);
 }
 
 buscarPlaneta();
