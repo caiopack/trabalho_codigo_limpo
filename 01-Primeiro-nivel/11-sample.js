@@ -46,7 +46,7 @@ function contarAdmins(usuarios) {
 
 // Função para verificar se o número de tentativas de login é excessivo
 function verificarTentativasDeLogin(usuario, numeroMaximoDeTentativas) {
-    if (usuario.quantidadeDeTentativasDeLogin > numeroMaximoDeTentativas) {
+    if (usuario.quantidadeDeTentativasDeLogin> numeroMaximoDeTentativas) {
         console.log("Tentativas de login excessivas.");
     } else {
         console.log("Tentativas de login sob controle.");
@@ -95,6 +95,11 @@ const usuarios = [
         { dataDoLoginRecente: new Date(data,{ ano: 2023, mes: 12, dia: 25 }), quantidadeDeTentativasDeLogin: 7 }
     )
 ];
+usuarios.forEach(function(usuario, index){
+    verificarTentativasDeLogin(usuario[index], numeroMaximoDeTentativas);
+    verificarUsuarioLogadoRecentemente(usuario[index], usuario[index]);
+    verificarUsuarioNovato(usuario[index]);
+});
 
 
 console.log(`Usuários admin: ${contarAdmins(usuarios)}`);
@@ -103,8 +108,8 @@ usuarios[0].verificaUsuarioAtivo();
 
 usuarios[1].verificaLiberdadeDeAcesso();
 
-verificarTentativasDeLogin(usuarios[Usuario], numeroMaximoDeTentativas);
 
-console.log(verificarUsuarioLogadoRecentemente(usuarios[0], usuarios[3]));
 
-verificarUsuarioNovato(usuarios[3]);
+console.log(verificarUsuarioLogadoRecentemente);
+
+
