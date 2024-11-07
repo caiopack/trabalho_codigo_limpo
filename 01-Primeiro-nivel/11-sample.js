@@ -1,5 +1,10 @@
 const numeroMaximoDeTentativas= 4;
 
+const data = {
+    ano: 2015, mes: 1, dia: 25
+};
+
+
 class Usuario { 
     constructor(dadosDaPessoa, dadosDoUsuarioNoSistema, infomarcoesDeLogin) {
         this.nome = dadosDaPessoa.nome;
@@ -71,23 +76,23 @@ function verificarUsuarioNovato(usuario) {
 const usuarios = [
     new Usuario(
         { nome: "Carlos", idade: 25, funcaoNoSistema: "admin" },
-        { dataDeCriacaoDoUsuario: new Date(2023, 1, 15), usuarioAtivo: true },
-        { dataDoLoginRecente: new Date(2024, 8, 1), quantidadeDeTentativasDeLogin: 2 }
+        { dataDeCriacaoDoUsuario: new Date(data, { ano: 2015, mes: 1, dia: 25 }), usuarioAtivo: true },
+        { dataDoLoginRecente: new Date(data, { ano: 2024, mes: 8, dia: 1 }), quantidadeDeTentativasDeLogin: 2 }
     ),
     new Usuario(
         { nome: "Ana", idade: 30, funcaoNoSistema: "guest" },
-        { dataDeCriacaoDoUsuario: new Date(2020, 4, 22), usuarioAtivo: true },
-        { dataDoLoginRecente: new Date(2024, 7, 31), quantidadeDeTentativasDeLogin: 3 }
+        { dataDeCriacaoDoUsuario: new Date(data, { ano: 2020, mes: 4, dia:22 }), usuarioAtivo: true },
+        { dataDoLoginRecente: new Date(data, { ano: 2024, mes: 7, dia: 31 }), quantidadeDeTentativasDeLogin: 3 }
     ),
     new Usuario(
         { nome: "José", idade: 29, funcaoNoSistema: "admin" },
-        { dataDeCriacaoDoUsuario: new Date(2022, 10, 5), usuarioAtivo: false },
-        { dataDoLoginRecente: new Date(2024, 6, 10), quantidadeDeTentativasDeLogin: 5 }
+        { dataDeCriacaoDoUsuario: new Date(data,{ ano: 2022, mes: 10, dia: 5 }), usuarioAtivo: false },
+        { dataDoLoginRecente: new Date(data, { ano: 2024, mes: 6, dia: 10 }), quantidadeDeTentativasDeLogin: 5 }
     ),
     new Usuario(
         { nome: "Maria", idade: 35, funcaoNoSistema: "guest" },
-        { dataDeCriacaoDoUsuario: new Date(2021, 2, 10), usuarioAtivo: false },
-        { dataDoLoginRecente: new Date(2023, 12, 25), quantidadeDeTentativasDeLogin: 7 }
+        { dataDeCriacaoDoUsuario: new Date(data,{ ano: 2021, mes: 2, dia: 10 }), usuarioAtivo: false },
+        { dataDoLoginRecente: new Date(data,{ ano: 2023, mes: 12, dia: 25 }), quantidadeDeTentativasDeLogin: 7 }
     )
 ];
 
@@ -98,7 +103,7 @@ usuarios[0].verificaUsuarioAtivo();
 
 usuarios[1].verificaLiberdadeDeAcesso();
 
-verificarTentativasDeLogin(usuarios[2], numeroMaximoDeTentativas);
+verificarTentativasDeLogin(usuarios[Usuario], numeroMaximoDeTentativas);
 
 console.log(verificarUsuarioLogadoRecentemente(usuarios[0], usuarios[3]));
 

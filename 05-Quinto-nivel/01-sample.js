@@ -1,7 +1,6 @@
 function principal() {
     const itens = [10, 20, 30, 40, 50];
     let total = 0;
-    
     const x = 1;
     const y = 2;
     const z = 3;
