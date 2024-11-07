@@ -6,21 +6,23 @@ function principal() {
     const cabelo = 50;
     const itens = [camiseta, bola, sapato, meia, cabelo];
     let total = 0;
-    const x = 1;
-    const y = 2;
-    const z = 3;
+    const valorBase = 1;
+    const valorAlvo = 2;
+    const multiplicadorItem = 3;
     
-    for (let i = 0; i < itens.length; i++) {
-        total += itens[i] * z;
+    for (let indice = 0; indice < itens.length; indice++) {
+        total += itens[indice] * multiplicadorItem;
     }
-    const numeroUsuario = 42;
-    const usuario = obterUsuario(numeroUsuario);
-    const numero2 = 2;
-    if (x === 1 && y === numero2 && usuario.ativo === 1) {
+    
+    const idUsuario = 42;
+    const usuario = obterUsuario(idUsuario);
+    
+    if (valorBase === 1 && valorAlvo === 2 && usuario.ativo === 1) {
         console.log("Usuário está ativo");
     } else {
         console.log("Usuário não está ativo");
     }
+    
 
     console.log("O total é:", total);
     atualizarDados(usuario);
