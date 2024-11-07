@@ -1,4 +1,5 @@
-async function buscarPersonagem() {
+{   
+    const personagem = "lucas lindo";
     const mensagemDiv = document.getElementById("mensagem");
     mensagemDiv.innerHTML = "";
 
@@ -6,7 +7,6 @@ async function buscarPersonagem() {
 
     if (!id || id <= 0) {
         mostrarErro("ID inválido. Insira um número positivo.", "danger");
-        return;
     }
 
     try {
@@ -15,9 +15,8 @@ async function buscarPersonagem() {
         if (!resposta.ok) {
             throw new Error("Personagem não encontrado. Verifique o ID e tente novamente.");
         }
-
-        const personagem = await resposta.json();
         mostrarResultado(personagem);
+        
 
     } catch (erro) {
         mostrarErro(erro.message, "danger");
