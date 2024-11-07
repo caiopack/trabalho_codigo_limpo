@@ -63,24 +63,27 @@ function atualizarDados(usuario) {
     }
 }
 
-function calcular(a, b, c) {
-    const f = 2 ;
-    const g = 3;
-    let d = 0;
-    if (a === 1) {
-        d = b + c;
-    } else if (a === f) {
-        d = b * c;
-    } else if (a === g) {
-        d = b - c;
+function calcular(operacao, num1, num2) {
+    const numeroSoma = 2;  
+    const numeroMultiplica = 3; 
+    let resultado;
+    if (operacao === 1) {
+        resultado = num1 + num2; 
+    } else if (operacao === numeroSoma) {
+        resultado = num1 * num2;  
+    } else if (operacao === numeroMultiplica) {
+        resultado = num1 - num2;  
     } else {
-        d = b / c;
+        resultado = num1 / num2;  
     }
 
-    const e = d.toString().split("").reverse().join("");
-    console.log("String invertida:", e);
-    return e;
+
+    const resultadoInvertido = resultado.toString().split("").reverse().join("");
+    console.log("Resultado invertido:", resultadoInvertido);
+
+    return resultadoInvertido;
 }
+
 
 function processarDados(n) {
     const restoDivisao = 2;
@@ -130,10 +133,10 @@ function funcao() {
 }
 
 principal();
-const a = 1;
-const b = 2;
-const c = 3;
+const nunmero1 = 1;
+const numero2 = 2;
+const numero3 = 3;
 const numeroDados = 10;
-console.log("Resultado do cálculo:", calcular(a, b, c));
+console.log("Resultado do cálculo:", calcular(nunmero1, numero2, numero3));
 console.log("Resultado do processamento de dados:", processarDados(numeroDados));
 console.log("Resultado da função:", funcao());
