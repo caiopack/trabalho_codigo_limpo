@@ -6,9 +6,9 @@ async function buscarPersonagemENave(idPersonagem) {
         if (personagem.starships.length > 0) {
             const respostaNave = await fetch(personagem.starships[0]);
             const nave = await respostaNave.json();
-
+            const numero = 100;
             const tripulacao = parseInt(nave.crew);
-            if (tripulacao > 100) {
+            if (tripulacao > numero) {
                 console.log(`A nave ${nave.name} é considerada grande com ${tripulacao} tripulantes.`);
             } else {
                 console.log(`A nave ${nave.name} é pequena com ${tripulacao} tripulantes.`);
