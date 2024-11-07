@@ -1,11 +1,12 @@
-const numeroMaximoDeTentativas= 4;
+const numeroMaximoDeTentativas = 4;
+const indiceUsuario1 = 0;
+const indiceUsuario2 = 1;
+const indiceUsuario3 = 2;
+const indiceUsuario4 = 3;
 
-const data = {
-    ano: 2015, mes: 1, dia: 25
-};
+const data = { ano: 2015, mes: 1, dia: 25 };
 
-
-class Usuario { 
+class Usuario {
     constructor(dadosDaPessoa, dadosDoUsuarioNoSistema, infomarcoesDeLogin) {
         this.nome = dadosDaPessoa.nome;
         this.idade = dadosDaPessoa.idade;
@@ -46,7 +47,7 @@ function contarAdmins(usuarios) {
 
 // Função para verificar se o número de tentativas de login é excessivo
 function verificarTentativasDeLogin(usuario, numeroMaximoDeTentativas) {
-    if (usuario.quantidadeDeTentativasDeLogin> numeroMaximoDeTentativas) {
+    if (usuario.quantidadeDeTentativasDeLogin > numeroMaximoDeTentativas) {
         console.log("Tentativas de login excessivas.");
     } else {
         console.log("Tentativas de login sob controle.");
@@ -76,18 +77,18 @@ function verificarUsuarioNovato(usuario) {
 const usuarios = [
     new Usuario(
         { nome: "Carlos", idade: 25, funcaoNoSistema: "admin" },
-        { dataDeCriacaoDoUsuario: new Date(data, { ano: 2015, mes: 1, dia: 25 }), usuarioAtivo: true },
-        { dataDoLoginRecente: new Date(data, { ano: 2024, mes: 8, dia: 1 }), quantidadeDeTentativasDeLogin: 2 }
+        { dataDeCriacaoDoUsuario: new Date(data,{ ano: 2015, mes: 1, dia: 25 }), usuarioAtivo: true },
+        { dataDoLoginRecente: new Date(data,{ ano: 2024, mes: 8, dia: 1 }), quantidadeDeTentativasDeLogin: 2 }
     ),
     new Usuario(
         { nome: "Ana", idade: 30, funcaoNoSistema: "guest" },
-        { dataDeCriacaoDoUsuario: new Date(data, { ano: 2020, mes: 4, dia:22 }), usuarioAtivo: true },
-        { dataDoLoginRecente: new Date(data, { ano: 2024, mes: 7, dia: 31 }), quantidadeDeTentativasDeLogin: 3 }
+        { dataDeCriacaoDoUsuario: new Date(data,{ ano: 2020, mes: 4, dia: 22 }), usuarioAtivo: true },
+        { dataDoLoginRecente: new Date(data,{ ano: 2024, mes: 7, dia: 31 }), quantidadeDeTentativasDeLogin: 3 }
     ),
     new Usuario(
         { nome: "José", idade: 29, funcaoNoSistema: "admin" },
         { dataDeCriacaoDoUsuario: new Date(data,{ ano: 2022, mes: 10, dia: 5 }), usuarioAtivo: false },
-        { dataDoLoginRecente: new Date(data, { ano: 2024, mes: 6, dia: 10 }), quantidadeDeTentativasDeLogin: 5 }
+        { dataDoLoginRecente: new Date(data,{ ano: 2024, mes: 6, dia: 10 }), quantidadeDeTentativasDeLogin: 5 }
     ),
     new Usuario(
         { nome: "Maria", idade: 35, funcaoNoSistema: "guest" },
@@ -95,21 +96,18 @@ const usuarios = [
         { dataDoLoginRecente: new Date(data,{ ano: 2023, mes: 12, dia: 25 }), quantidadeDeTentativasDeLogin: 7 }
     )
 ];
-usuarios.forEach(function(usuario, index){
-    verificarTentativasDeLogin(usuario[index], numeroMaximoDeTentativas);
-    verificarUsuarioLogadoRecentemente(usuario[index], usuario[index]);
-    verificarUsuarioNovato(usuario[index]);
-});
 
+usuarios.forEach((usuario) => {
+    verificarTentativasDeLogin(usuario, numeroMaximoDeTentativas);
+    verificarUsuarioNovato(usuario);
+});
 
 console.log(`Usuários admin: ${contarAdmins(usuarios)}`);
 
-usuarios[0].verificaUsuarioAtivo();
+usuarios[indiceUsuario1].verificaUsuarioAtivo();
+usuarios[indiceUsuario2].verificaLiberdadeDeAcesso();
+verificarTentativasDeLogin(usuarios[indiceUsuario3], numeroMaximoDeTentativas);
 
-usuarios[1].verificaLiberdadeDeAcesso();
-
-
-
-console.log(verificarUsuarioLogadoRecentemente);
-
-
+const resultLogadoRecentemente = verificarUsuarioLogadoRecentemente(usuarios[indiceUsuario1], usuarios[indiceUsuario3]);
+console.log(resultLogadoRecentemente);
+verificarUsuarioNovato(usuarios[indiceUsuario4]);
