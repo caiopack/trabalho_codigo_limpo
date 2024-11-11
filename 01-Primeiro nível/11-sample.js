@@ -1,14 +1,15 @@
-const numeroMaximoDeTentativas= 4;
+const NUMERO_MAXIMO_DE_TENTATIVAS = 4;
+const UM_ANO_EM_MS = 31536000000;
 
 class Usuario { 
-    constructor(dadosDaPessoa, dadosDoUsuarioNoSistema, infomarcoesDeLogin) {
+    constructor(dadosDaPessoa, dadosDoUsuarioNoSistema, informacoesDeLogin) {
         this.nome = dadosDaPessoa.nome;
         this.idade = dadosDaPessoa.idade;
         this.funcaoNoSistema = dadosDaPessoa.funcaoNoSistema;
         this.dataDeCriacaoDoUsuario = dadosDoUsuarioNoSistema.dataDeCriacaoDoUsuario;
-        this.dataDoLoginRecente = infomarcoesDeLogin.dataDoLoginRecente;
+        this.dataDoLoginRecente = informacoesDeLogin.dataDoLoginRecente;
         this.usuarioAtivo = dadosDoUsuarioNoSistema.usuarioAtivo;
-        this.quantidadeDeTentativasDeLogin = infomarcoesDeLogin.quantidadeDeTentativasDeLogin;
+        this.quantidadeDeTentativasDeLogin = informacoesDeLogin.quantidadeDeTentativasDeLogin;
     }
 
     verificaUsuarioAtivo() {
@@ -28,7 +29,7 @@ class Usuario {
     }
 }
 
-// Função para verificar o número de administradores
+
 function contarAdmins(usuarios) {
     let admsPresentesNoSistema = 0;
     for (let i = 0; i < usuarios.length; i++) {
@@ -39,16 +40,15 @@ function contarAdmins(usuarios) {
     return admsPresentesNoSistema;
 }
 
-// Função para verificar se o número de tentativas de login é excessivo
-function verificarTentativasDeLogin(usuario, numeroMaximoDeTentativas) {
-    if (usuario.quantidadeDeTentativasDeLogin > numeroMaximoDeTentativas) {
+function verificarTentativasDeLogin(usuario, maxTentativas) {
+    if (usuario.quantidadeDeTentativasDeLogin > maxTentativas) {
         console.log("Tentativas de login excessivas.");
     } else {
         console.log("Tentativas de login sob controle.");
     }
 }
 
-// Função para verificar qual usuário logou mais recentemente
+
 function verificarUsuarioLogadoRecentemente(usuario1, usuario2) {
     if (usuario1.dataDoLoginRecente > usuario2.dataDoLoginRecente) {
         return `${usuario1.nome} logou mais recentemente.`;
@@ -57,11 +57,10 @@ function verificarUsuarioLogadoRecentemente(usuario1, usuario2) {
     }
 }
 
-// Função para verificar se o usuário foi criado recentemente
+
 function verificarUsuarioNovato(usuario) {
     const hoje = new Date();
-    const umAnoMs = 31536000000;
-    if ((hoje - usuario.dataDeCriacaoDoUsuario) < umAnoMs) {
+    if ((hoje - usuario.dataDeCriacaoDoUsuario) < UM_ANO_EM_MS) {
         console.log("Usuário criado recentemente.");
     } else {
         console.log("Usuário antigo.");
@@ -91,14 +90,13 @@ const usuarios = [
     )
 ];
 
-
 console.log(`Usuários admin: ${contarAdmins(usuarios)}`);
 
 usuarios[0].verificaUsuarioAtivo();
 
 usuarios[1].verificaLiberdadeDeAcesso();
 
-verificarTentativasDeLogin(usuarios[2], numeroMaximoDeTentativas);
+verificarTentativasDeLogin(usuarios[2], NUMERO_MAXIMO_DE_TENTATIVAS);
 
 console.log(verificarUsuarioLogadoRecentemente(usuarios[0], usuarios[3]));
 

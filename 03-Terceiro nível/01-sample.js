@@ -1,4 +1,6 @@
 async function buscarEDetalharNave() {
+    const LIMITE_TAMANHO_TRIPULACAO_GRANDE = 100;
+
     try {
         const resposta = await fetch("https://swapi.dev/api/starships/9/");
         const nave = await resposta.json();
@@ -13,7 +15,7 @@ async function buscarEDetalharNave() {
         console.log(detalhesNave);
 
         const tamanhoTripulacao = parseInt(nave.crew);
-        if (tamanhoTripulacao > 100) {
+        if (tamanhoTripulacao > LIMITE_TAMANHO_TRIPULACAO_GRANDE) {
             console.log("Esta é uma nave grande.");
         } else {
             console.log("Esta é uma nave pequena.");

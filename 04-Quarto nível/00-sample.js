@@ -1,3 +1,5 @@
+document.getElementById("buscarBtn").onclick = buscarPersonagem;
+
 async function buscarPersonagem() {
     const mensagemDiv = document.getElementById("mensagem");
     mensagemDiv.innerHTML = "";

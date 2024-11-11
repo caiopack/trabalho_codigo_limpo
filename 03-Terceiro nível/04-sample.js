@@ -1,4 +1,5 @@
 async function buscarPersonagemENave(idPersonagem) {
+    const LIMITE_TRIPULACAO_GRANDE = 100; 
     try {
         const respostaPersonagem = await fetch(`https://swapi.dev/api/people/${idPersonagem}/`);
         const personagem = await respostaPersonagem.json();
@@ -8,7 +9,7 @@ async function buscarPersonagemENave(idPersonagem) {
             const nave = await respostaNave.json();
 
             const tripulacao = parseInt(nave.crew);
-            if (tripulacao > 100) {
+            if (tripulacao > LIMITE_TRIPULACAO_GRANDE) {
                 console.log(`A nave ${nave.name} é considerada grande com ${tripulacao} tripulantes.`);
             } else {
                 console.log(`A nave ${nave.name} é pequena com ${tripulacao} tripulantes.`);
