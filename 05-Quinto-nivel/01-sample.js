@@ -9,21 +9,20 @@ function principal() {
     const valorBase = 1;
     const valorAlvo = 2;
     const multiplicadorItem = 3;
-    
     for (let indice = 0; indice < itens.length; indice++) {
         total += itens[indice] * multiplicadorItem;
     }
-    
     const idUsuario = 42;
     const usuario = obterUsuario(idUsuario);
+    const valorBaseAtivo = 1;
+    const valorAlvoAtivo = 2;
+    const statusUsuarioAtivo= 1; 
     
-    if (valorBase === 1 && valorAlvo === 2 && usuario.ativo === 1) {
+    if (valorBase === valorBaseAtivo && valorAlvo === valorAlvoAtivo && usuario.ativo === statusUsuarioAtivo) {
         console.log("Usuário está ativo");
     } else {
         console.log("Usuário não está ativo");
     }
-    
-
     console.log("O total é:", total);
     atualizarDados(usuario);
 }
@@ -78,13 +77,10 @@ function calcular(operacao, num1, num2) {
         resultado = num1 / num2;  
     }
 
-
     const resultadoInvertido = resultado.toString().split("").reverse().join("");
     console.log("Resultado invertido:", resultadoInvertido);
-
     return resultadoInvertido;
 }
-
 
 function processarDados(n) {
     const restoDivisao = 2;
