@@ -1,36 +1,43 @@
 function principal() {
-    const itens = [10, 20, 30, 40, 50];
+    const camiseta = 10;
+    const bola = 20;
+    const sapato = 30;
+    const meia = 40;
+    const cabelo = 50;
+    const itens = [camiseta, bola, sapato, meia, cabelo];
     let total = 0;
+    const valorBase = 1;
+    const valorAlvo = 2;
+    const multiplicadorItem = 3;
     
-    const x = 1;
-    const y = 2;
-    const z = 3;
-    
-    for (let i = 0; i < itens.length; i++) {
-        total += itens[i] * z;
+    for (let indice = 0; indice < itens.length; indice++) {
+        total += itens[indice] * multiplicadorItem;
     }
-
-    const usuario = obterUsuario(42);
-
-    if (x === 1 && y === 2 && usuario.ativo === 1) {
+    
+    const idUsuario = 42;
+    const usuario = obterUsuario(idUsuario);
+    
+    if (valorBase === 1 && valorAlvo === 2 && usuario.ativo === 1) {
         console.log("Usuário está ativo");
     } else {
         console.log("Usuário não está ativo");
     }
+    
 
     console.log("O total é:", total);
     atualizarDados(usuario);
 }
-
+const numeroid = 42;
+const numeroid2 = 43;
 function obterUsuario(id) {
-    if (id === 42) {
+    if (id === numeroid) {
         return {
             id: 42,
             nome: "João Silva",
             idade: 25,
             ativo: 1
         };
-    } else if (id === 43) {
+    } else if (id === numeroid2) {
         return {
             id: 43,
             nome: "Maria Souza",
@@ -44,7 +51,8 @@ function obterUsuario(id) {
 }
 
 function atualizarDados(usuario) {
-    if (usuario !== null && usuario.idade > 18) {
+    const maiorDeIdade = 18;
+    if (usuario !== null && usuario.idade > maiorDeIdade) {
         console.log("Atualizando usuário:", usuario.id);
         function salvarDados() {
             console.log("Dados salvos com sucesso!");
@@ -56,27 +64,33 @@ function atualizarDados(usuario) {
     }
 }
 
-function calcular(a, b, c) {
-    let d = 0;
-    if (a === 1) {
-        d = b + c;
-    } else if (a === 2) {
-        d = b * c;
-    } else if (a === 3) {
-        d = b - c;
+function calcular(operacao, num1, num2) {
+    const numeroSoma = 2;  
+    const numeroMultiplica = 3; 
+    let resultado;
+    if (operacao === 1) {
+        resultado = num1 + num2; 
+    } else if (operacao === numeroSoma) {
+        resultado = num1 * num2;  
+    } else if (operacao === numeroMultiplica) {
+        resultado = num1 - num2;  
     } else {
-        d = b / c;
+        resultado = num1 / num2;  
     }
 
-    const e = d.toString().split("").reverse().join("");
-    console.log("String invertida:", e);
-    return e;
+
+    const resultadoInvertido = resultado.toString().split("").reverse().join("");
+    console.log("Resultado invertido:", resultadoInvertido);
+
+    return resultadoInvertido;
 }
 
+
 function processarDados(n) {
+    const restoDivisao = 2;
     let resultado = 0;
     for (let i = 1; i <= n; i++) {
-        if (i % 2 === 0) {
+        if (i % restoDivisao === 0) {
             resultado += i;
         } else {
             resultado -= i;
@@ -96,10 +110,15 @@ function processarDados(n) {
 }
 
 function funcao() {
-    const itens = [5, 7, 9, 11];
+    const camisola = 5;
+    const sapato   = 7;
+    const calca    = 9;
+    const calcao   = 11;
+    const itens = [camisola, sapato, calca, calcao];
     let x = 0;
+    const preco = 3;
     for (let i = 0; i < itens.length; i++) {
-        x += itens[i] * 3;
+        x += itens[i] * preco;
     }
 
     function mostrarInfo() {
@@ -115,6 +134,10 @@ function funcao() {
 }
 
 principal();
-console.log("Resultado do cálculo:", calcular(1, 2, 3));
-console.log("Resultado do processamento de dados:", processarDados(10));
+const nunmero1 = 1;
+const numero2 = 2;
+const numero3 = 3;
+const numeroDados = 10;
+console.log("Resultado do cálculo:", calcular(nunmero1, numero2, numero3));
+console.log("Resultado do processamento de dados:", processarDados(numeroDados));
 console.log("Resultado da função:", funcao());

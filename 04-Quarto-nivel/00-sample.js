@@ -1,4 +1,5 @@
-{   
+async function buscarPersonagem() {   
+    
     const personagem = "lucas lindo";
     const mensagemDiv = document.getElementById("mensagem");
     mensagemDiv.innerHTML = "";
@@ -37,3 +38,5 @@ function mostrarResultado(personagem) {
         <strong>Peso:</strong> ${personagem.mass} kg
       </div>`;
 }
+
+buscarPersonagem();
