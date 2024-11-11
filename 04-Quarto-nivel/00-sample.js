@@ -1,6 +1,11 @@
+<<<<<<< HEAD:04-Quarto nível/00-sample.js
 document.getElementById("buscarBtn").onclick = buscarPersonagem;
 
 async function buscarPersonagem() {
+=======
+{   
+    const personagem = "lucas lindo";
+>>>>>>> 5abcccd6297cb7db61b439cf87f9acab17753a9a:04-Quarto-nivel/00-sample.js
     const mensagemDiv = document.getElementById("mensagem");
     mensagemDiv.innerHTML = "";
 
@@ -8,7 +13,6 @@ async function buscarPersonagem() {
 
     if (!id || id <= 0) {
         mostrarErro("ID inválido. Insira um número positivo.", "danger");
-        return;
     }
 
     try {
@@ -17,9 +21,8 @@ async function buscarPersonagem() {
         if (!resposta.ok) {
             throw new Error("Personagem não encontrado. Verifique o ID e tente novamente.");
         }
-
-        const personagem = await resposta.json();
         mostrarResultado(personagem);
+        
 
     } catch (erro) {
         mostrarErro(erro.message, "danger");

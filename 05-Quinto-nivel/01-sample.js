@@ -1,21 +1,18 @@
-const VALOR_X = 1;
-const VALOR_Y = 2;
-const VALOR_Z = 3;
-const ID_USUARIO_ATIVO = 1;
-const ID_USUARIO_INATIVO = 0;
-const ID_USUARIO_ESPECIFICO = 42;
-
 function principal() {
     const itens = [10, 20, 30, 40, 50];
     let total = 0;
     
+    const x = 1;
+    const y = 2;
+    const z = 3;
+    
     for (let i = 0; i < itens.length; i++) {
-        total += itens[i] * VALOR_Z;  
+        total += itens[i] * z;
     }
 
-    const usuario = obterUsuario(ID_USUARIO_ESPECIFICO);
+    const usuario = obterUsuario(42);
 
-    if (VALOR_X === 1 && VALOR_Y === 2 && usuario.ativo === ID_USUARIO_ATIVO) {
+    if (x === 1 && y === 2 && usuario.ativo === 1) {
         console.log("Usuário está ativo");
     } else {
         console.log("Usuário não está ativo");
@@ -26,19 +23,19 @@ function principal() {
 }
 
 function obterUsuario(id) {
-    if (id === ID_USUARIO_ESPECIFICO) {
+    if (id === 42) {
         return {
-            id: ID_USUARIO_ESPECIFICO,
+            id: 42,
             nome: "João Silva",
             idade: 25,
-            ativo: ID_USUARIO_ATIVO
+            ativo: 1
         };
     } else if (id === 43) {
         return {
             id: 43,
             nome: "Maria Souza",
             idade: 28,
-            ativo: ID_USUARIO_INATIVO
+            ativo: 0
         };
     } else {
         console.log("Usuário não encontrado");
@@ -61,7 +58,7 @@ function atualizarDados(usuario) {
 
 function calcular(a, b, c) {
     let d = 0;
-    if (a === VALOR_X) {
+    if (a === 1) {
         d = b + c;
     } else if (a === 2) {
         d = b * c;
@@ -118,6 +115,6 @@ function funcao() {
 }
 
 principal();
-console.log("Resultado do cálculo:", calcular(VALOR_X, 2, 3)); 
+console.log("Resultado do cálculo:", calcular(1, 2, 3));
 console.log("Resultado do processamento de dados:", processarDados(10));
 console.log("Resultado da função:", funcao());
