@@ -1,22 +1,18 @@
 {
   "name": "trabalho_codigo_limpo",
   "version": "1.0.0",
-  "description": "Aluno: Caio Costa Csermak   Matrícula: 2412846\r Aluno: Ives Carneiro Sebestyen   Matrícula:2412834",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "lint": "eslint ."
-=======
     "lint": "eslint 04-Quarto-nivel" 
->>>>>>> 5abcccd6297cb7db61b439cf87f9acab17753a9a
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@eslint/js": "^9.14.0",
-    "eslint": "^9.14.0",
-    "globals": "^15.12.0"
+    "@eslint/js": "^9.13.0",
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0"
   }
 }
